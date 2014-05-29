@@ -1,0 +1,114 @@
+- Intro
+    - Elasticsearch started as a one-man show.
+        - Scope of project
+        - What we've used it for - Mozilla (AMO, SUMO, crash logs), Votizen
+    - Docs look good at first, but you quickly realize there's a lot missing.
+- Characteristics of ES as a datastore
+    - Where in CAP?
+    - What is it good for? 
+    - What is it bad at?
+    - Why is it typically a secondary datastore?
+- Definition of terms
+    - Shards, replicas, mapping, indexing, etc.
+- Basic data structure
+    - Document IDs
+    - Type-guessing
+    - Mappings
+    - Arrays
+        - How they're searched
+    - Nesting and inter-document relationships
+- Querying
+    - Filters vs. Queries
+    - Filters are cached, so filter when you can.
+    - Queries are more powerful: fuzzy stuff, scoring, etc.
+    - Term vs. match and why this will save you days of pain
+    - Text phrase queries
+    - Building glorious towers of boolean logic and why EC2 will make you sorry
+    - Faceting
+    - Scoring
+        - Custom-scoring queries, e.g. weighting more complete user profiles
+        - Boosts
+    - Exercises (scattered throughout this section): 
+        - writing different types of queries
+        - using explain to see how a query is processed
+- Mappings and Analysis
+    - What a mapping is and what it is not
+    - Exercise: 
+        - Load some documents (provided), look at the default mapping generated
+        - Contains some things that ES handles poorly by default (dates, nesting, etc)
+    - 4-fold path to analysis
+        - Char filter
+        - Tokenizer
+        - Token filter
+        - Analyzer
+    - Parallels with DB indexing
+    - What kinds of analyses are there?
+        - All the standard stuff
+            - Stopwords
+            - Stemming
+            - Ngrams
+        - Various field types
+        - Multi fields
+    - Choosing appropriate analysis: what kinds speed which queries?
+    - Common cases
+        - Email addresses
+        - Usernames
+        - Street addresses
+    - Exercises:
+        - Testing analyzers with the _analyze API 
+        - Write a mapping, including appropriate analyzers, to improve upon the default one above
+    - Multi-language support
+    - Query analyzers (vs. index analyzers)
+    - Shrinking your index
+        - What's the point?
+            - Is every part of your index equally hot?
+            - Is your index bigger than RAM?
+            - How's your I/O speed?
+        - Compression
+        - `_source`: to store or not to store?
+- An example ES integration
+    - How to index
+        - Bulk indexing
+            - How to monitor progress (yield)
+        - Exercise in bulk indexing
+        - post-save hooks for updating
+    - Libraries: what to use in some popular languages (Python, PHP, Ruby)
+        - some have query builders, some are more bare metal
+    - What to do with ES query results
+        - To hit the primary DB, or not to hit it?
+- Fancy/advanced features (not covered in depth, and may be omitted for time, but have slides)
+    - Synonyms
+    - Suggesters
+    - Autocompletion - via prefixing, via autocomplete suggester (beta)
+    - Percolation
+- Deployment and Administration
+    - Don't trust new versions too readily. It moves fast but furiously.
+    - Give it big RAM up front.
+    - All those lovely Java tuning switches: not necessary
+    - Use an up-to-date JVM and a modern OS. Difference between life and death.
+    - Clustering
+        - How do replicas and shards relate?
+        - Having more shards speeds a single query. Having more replicas speeds multiple-query throughput.
+        - Pitfalls: ES makes friends too easily; protect with firewalls, turn off multicast
+        - Have enough nodes to have all shards mirrored
+        - Adding nodes with no downtime
+             - Telling NewNode about OldNode is enough. OldNode will make friends. Then edit OldNode's config later and restart it.
+        - ES really likes to have a cluster. You're not feeling lucky. 
+        - What split-brain is and how to avoid it
+    - Monitoring
+        - What to monitor
+        - Tools like paramedic, BigDesk, Marvel
+        - How to monitor (status API)
+            - Exercise: looking at status API
+    - Sharding tradeoffs
+        - Watch for large Java heaps
+        - Too few means too many GC pauses.
+        - I/O on EC2 sucks.
+        - It's not single-thread-per-shard or anything.
+    - Deploying new mappings and synonyms without moving files around
+- Planning for the future
+    - Changing mappings
+    - Mergeable and unmergeable changes
+    - Reindexing
+    - ES isn't a good primary store, in most cases, because of the brittleness of mappings.
+    - However, the update API exists, and versioning dodges race conditions.
