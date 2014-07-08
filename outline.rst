@@ -17,7 +17,7 @@
     - Arrays
         - How they're searched
     - Nesting and inter-document relationships
-- Querying (erik)
+- Querying (laura)
     - Filters vs. Queries
     - Filters are cached, so filter when you can.
     - Queries are more powerful: fuzzy stuff, scoring, etc.
@@ -31,7 +31,7 @@
     - Exercises (scattered throughout this section): 
         - writing different types of queries
         - using explain to see how a query is processed
-- Mappings and Analysis (laura)
+- Mappings and Analysis (erik)
     - What a mapping is and what it is not
     - Exercise: 
         - Load some documents (provided), look at the default mapping generated
