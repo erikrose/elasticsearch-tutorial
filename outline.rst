@@ -1,23 +1,23 @@
-- Intro
+- Intro (erik)
     - Elasticsearch started as a one-man show.
         - Scope of project
         - What we've used it for - Mozilla (AMO, SUMO, crash logs), Votizen
     - Docs look good at first, but you quickly realize there's a lot missing.
-- Characteristics of ES as a datastore
+- Characteristics of ES as a datastore (laura)
     - Where in CAP?
     - What is it good for? 
     - What is it bad at?
     - Why is it typically a secondary datastore?
-- Definition of terms
+- Definition of terms (laura)
     - Shards, replicas, mapping, indexing, etc.
-- Basic data structure
+- Basic data structure (erik - this is fairly well developed already)
     - Document IDs
     - Type-guessing
     - Mappings
     - Arrays
         - How they're searched
     - Nesting and inter-document relationships
-- Querying
+- Querying (erik)
     - Filters vs. Queries
     - Filters are cached, so filter when you can.
     - Queries are more powerful: fuzzy stuff, scoring, etc.
@@ -31,7 +31,7 @@
     - Exercises (scattered throughout this section): 
         - writing different types of queries
         - using explain to see how a query is processed
-- Mappings and Analysis
+- Mappings and Analysis (laura)
     - What a mapping is and what it is not
     - Exercise: 
         - Load some documents (provided), look at the default mapping generated
@@ -59,14 +59,14 @@
         - Write a mapping, including appropriate analyzers, to improve upon the default one above
     - Multi-language support
     - Query analyzers (vs. index analyzers)
-    - Shrinking your index
+    - Shrinking your index (erik - laura doesn't know as much about this bit)
         - What's the point?
             - Is every part of your index equally hot?
             - Is your index bigger than RAM?
             - How's your I/O speed?
         - Compression
         - `_source`: to store or not to store?
-- An example ES integration
+- An example ES integration 
     - How to index
         - Bulk indexing
             - How to monitor progress (yield)
@@ -76,12 +76,12 @@
         - some have query builders, some are more bare metal
     - What to do with ES query results
         - To hit the primary DB, or not to hit it?
-- Fancy/advanced features (not covered in depth, and may be omitted for time, but have slides)
+- Fancy/advanced features (not covered in depth, and may be omitted for time, but have slides) (laura)
     - Synonyms
     - Suggesters
     - Autocompletion - via prefixing, via autocomplete suggester (beta)
     - Percolation
-- Deployment and Administration
+- Deployment and Administration (erik)
     - Don't trust new versions too readily. It moves fast but furiously.
     - Give it big RAM up front.
     - All those lovely Java tuning switches: not necessary
@@ -106,7 +106,7 @@
         - I/O on EC2 sucks.
         - It's not single-thread-per-shard or anything.
     - Deploying new mappings and synonyms without moving files around
-- Planning for the future
+- Planning for the future (laura, but slides pretty solid)
     - Changing mappings
     - Mergeable and unmergeable changes
     - Reindexing
