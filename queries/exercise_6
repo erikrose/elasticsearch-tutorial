@@ -1,0 +1,28 @@
+curl -XGET -s 'http://localhost:9200/test/book/4/_explain?pretty=true' -d \
+'{
+    "query": {
+        "filtered": {
+            "filter": {
+                "term": {
+                    "category": "Web Development"
+                }
+            },
+            "query": {
+                "bool": {
+                    "should": [
+                        {
+                            "match": {
+                                "title": "Python"
+                            }
+                        },
+                        {
+                            "match": { 
+                                "summary": "Python" 
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}'
