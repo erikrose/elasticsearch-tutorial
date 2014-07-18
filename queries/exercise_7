@@ -1,0 +1,28 @@
+curl -XGET -s 'http://localhost:9200/test/book/_search?pretty=true' -d \
+'{
+    "query": {
+        "filtered": {
+            "filter": {
+                "term": {
+                    "category": "web"
+                }
+            },
+            "query": {
+                "bool": {
+                    "should": [
+                        {
+                            "match": {
+                                "title": "Python"
+                            }
+                        },
+                        {
+                            "match": { 
+                                "summary": "Python" 
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}'

@@ -1,0 +1,11 @@
+curl -XGET -s 'http://localhost:9200/test/book/_search?pretty=true' -d \
+'{
+    "query": {
+       "match_phrase": {
+          "summary": {
+              "query": "old versions of browsers",
+              "slop": 2 
+          }
+       }
+    }
+}'

@@ -1,0 +1,22 @@
+curl -XGET -s 'http://localhost:9200/test/book/_search?pretty=true' -d \
+'{
+    "query": {
+        "bool": {
+            "should": [
+                {
+                    "term": {
+                        "title": { 
+                            "value": "python", 
+                            "boost": 2.0 
+                        }
+                    }
+                },
+                {
+                    "term": { 
+                        "summary": "python" 
+                    }
+                }
+            ]
+        }
+    }
+}'
