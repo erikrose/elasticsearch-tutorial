@@ -1,0 +1,11 @@
+curl -XGET -s 'http://localhost:9200/test/book/_search?pretty=true' -d \
+'{
+        "size" : 0,
+        "aggs" : {
+            "category" : {
+                "terms" : {
+                    "field" : "category"
+                }
+            }
+        }
+}'

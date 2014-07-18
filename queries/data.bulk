@@ -1,0 +1,10 @@
+{"index" : { "_index" : "test", "_type": "book", "_id": "1"}}
+{"title": "Pool Sharks I Have Known", "author": "Speedy Johnny", "pages": 238, "publication date": "2013-01-01", "category": "Games", "summary": "Speedy Johnny was famous throughout the pool playing world for cheating. In this book he recounts some of his favorite anecdotes.", "rating": 3} 
+{"index" : { "_index" : "test", "_type": "book", "_id": "2"}}
+{"title": "Swords Ahoy", "author": "Robert Louis Pirateson", "pages": 175, "publication date": "1850-01-23", "category": "Pirate", "summary": "Follow the adventures of Captain Grungebeard and his band of merry peglegs.", "rating": 4.7 } 
+{"index" : { "_index" : "test", "_type": "book", "_id": "3"}}
+{"title": "CSS Fun and Easy", "author": "Julia Smith", "pages": 1032, "publication date": "2014-07-01", "category": "Web Development", "summary": "A comprehensive guide to having your soul destroyed by old versions of nameless browsers.", "rating": 4.1 }
+{"index" : { "_index" : "test", "_type": "book", "_id": "4"}}
+{"title": "Python for Dogs", "author": "Rufus Milan", "pages": 4, "publication date": "2012-12-20", "category": "Web Development", "summary": "A unique focus on only the parts of the Python language that are interesting to can  ines.", "rating": 5 }
+{"index" : { "_index" : "test", "_type": "book", "_id": "5"}}
+{"title": "Python for Rocket Scientists", "author": "Neil Sagan", "pages": 563, "publication date": "2014-03-02", "category": "Web Development", "summary": "A unique focus on only the parts of the Python language that are interesting to rocket scientists", "rating": 5 }

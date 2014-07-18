@@ -1,0 +1,13 @@
+curl -XGET -s 'http://localhost:9200/test/book/_search?pretty=true' -d \
+'{
+    "query": {
+        "function_score": {
+            "query": {
+                "match": { "title": "Python" }
+            },
+            "script_score": {
+                "script": "_score * doc[\"rating\"].value"
+            }
+        }
+    }
+}'
