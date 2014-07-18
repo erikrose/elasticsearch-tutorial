@@ -1,11 +1,35 @@
 curl -XGET -s 'http://localhost:9200/test/book/_search?pretty=true' -d \
 '{
-        "size" : 0,
-        "aggs" : {
-            "category" : {
-                "terms" : {
-                    "field" : "category"
+    "query": {
+        "bool": {
+            "must": { 
+                "bool": {
+                    "should": [ 
+                        {
+                            "match": {
+                                "category": "development"
+                            }
+                        },
+                        {
+                            "match": { 
+                                "category": "programming" 
+                            }
+                        }
+                    ]
                 }
-            }
+            },
+            "should": [
+                {
+                    "match": {
+                        "title": "Python"
+                    }
+                },
+                {
+                    "match": { 
+                        "summary": "Python" 
+                    }
+                }
+            ]
         }
+    }
 }'
