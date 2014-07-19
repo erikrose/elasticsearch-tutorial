@@ -1,0 +1,1 @@
+curl -s -XPUT 'http://localhost:9200/test/'

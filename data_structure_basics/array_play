@@ -1,0 +1,15 @@
+# Insert a bunch of different docs by changing the tag field (and ID) in the following:
+curl -s XPUT 'http://127.0.0.1:9200/test/book/1' -d '{
+    "title": "All About Fish",
+    "tag": ["one", "two", "red", "blue"]
+}'
+
+# A sample query--try changing the ["two", "three"] bit:
+curl -s -XGET 'http://127.0.0.1:9200/test/book/_search?pretty' -d '{
+    "query": {
+        "match_all": {}
+    },
+    "filter": {
+        "term": {"tag": ["two", "three"]}
+    }
+}'

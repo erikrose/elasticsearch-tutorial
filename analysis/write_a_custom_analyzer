@@ -1,0 +1,20 @@
+# How to update the "test" index's analyzers:
+curl -s -XPUT 'http://localhost:9200/test/_settings?pretty' -d '{
+    "analysis": {
+        "analyzer": {
+            "whitespace_analyzer": {
+                "filter": ["lowercase"],
+                "tokenizer": "whitespace_tokenizer"
+            }
+        },
+        "tokenizer": {
+            "whitespace_tokenizer": {
+                "type": "pattern",
+                "pattern": " +"
+            }
+        }
+    }
+}'
+
+# How to test an analyzer:
+curl -XGET -s 'http://localhost:9200/test/_analyze?analyzer=whitespace_analyzer&pretty=true' -d 'all your base are belong to us, dude'

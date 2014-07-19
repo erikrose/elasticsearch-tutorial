@@ -1,0 +1,31 @@
+# 1. Delete all album docs, if any:
+curl -s -XDELETE 'http://127.0.0.1:9200/test/album'
+
+# 2. Figuring out how to tempt ES into guessing a wrong type is up to you, but
+# here's how to make a new doc, for reference:
+curl -s XPUT 'http://127.0.0.1:9200/test/album/1' -d '{
+    "title": "Fish Sounds",
+    "gapless_playback": true,
+    "length_seconds": 210000,
+    "weight": 1.22,
+    "released": "2013-01-23"
+}'
+
+# 3. Get the mapping:
+curl -s -XGET 'http://127.0.0.1:9200/test/album/_mapping?pretty'
+
+# 4. Delete that album doc so we can change the bad mapping:
+curl -s -XDELETE 'http://127.0.0.1:9200/test/album'
+
+# 5. Set a mapping explicitly so you can’t fool ES anymore. Here's a sample
+# mapping to expand upon:
+curl -s XPUT 'http://127.0.0.1:9200/test/_mapping/album' -d '{
+  "properties" : {
+    "length_seconds" : {
+      "type" : "long"
+    },
+    "gapless_playback" : {
+      "type" : "boolean"
+    }
+  }
+}'

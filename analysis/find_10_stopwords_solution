@@ -1,0 +1,1 @@
+curl -XGET -s 'http://localhost:9200/_analyze?analyzer=stop&pretty=true' -d 'The an is a with that be for to and snookums'

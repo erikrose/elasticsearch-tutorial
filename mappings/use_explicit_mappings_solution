@@ -1,0 +1,38 @@
+# Delete the album doctype so we start from a clean slate:
+curl -s -XDELETE 'http://127.0.0.1:9200/test/album'
+
+# Trick ES into guessing incorrectly that title is a date. Some scalawag named
+# his album "2001-01-01":
+curl -s XPUT 'http://127.0.0.1:9200/test/album/1' -d '{
+    "title": "2001-01-01"
+}'
+
+# Future stringily-titled album inserts will fail:
+curl -s XPUT 'http://127.0.0.1:9200/test/album/2?pretty' -d '{
+    "title": "Hello There"
+}'
+
+# Get the mapping to see the mistake:
+curl -s -XGET 'http://127.0.0.1:9200/test/album/_mapping?pretty'
+
+# Delete the album doctype so we can change the mapping:
+curl -s -XDELETE 'http://127.0.0.1:9200/test/album'
+
+# Set a mapping explicitly so you can’t fool ES anymore:
+curl -s XPUT 'http://127.0.0.1:9200/test/_mapping/album' -d '{
+  "properties" : {
+    "title" : {
+      "type" : "string"
+    }
+  }
+}'
+
+# Insert our 2 docs:
+curl -s XPUT 'http://127.0.0.1:9200/test/album/1' -d '{
+    "title": "2001-01-01"
+}'
+
+# Future stringily-titled album inserts will fail:
+curl -s XPUT 'http://127.0.0.1:9200/test/album/2' -d '{
+    "title": "Hello There"
+}'

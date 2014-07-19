@@ -1,0 +1,26 @@
+# Close the index so we're allowed to update its settings:
+curl -s -XPOST 'http://localhost:9200/test/_close'
+
+# Put in the new analyzer:
+curl -s -XPUT 'http://localhost:9200/test/_settings?pretty' -d '{
+    "analysis": {
+        "analyzer": {
+            "comma_delim": {
+                "filter": ["lowercase"],
+                "tokenizer": "comma_delim_tokenizer"
+            }
+        },
+        "tokenizer": {
+            "comma_delim_tokenizer": {
+                "type": "pattern",
+                "pattern": ", +"
+            }
+        }
+    }
+}'
+
+# Reopen the index:
+curl -s -XPOST 'http://localhost:9200/test/_open'
+
+# Try the analyzer:
+curl -XGET -s 'http://localhost:9200/test/_analyze?analyzer=comma_delim&pretty=true' -d 'red, two-headed, striped, really dangerous'
