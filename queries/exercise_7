@@ -1,5 +1,4 @@
-curl -XGET -s 'http://localhost:9200/test/book/_search?pretty=true' -d \
-'{
+curl -s -XGET 'http://localhost:9200/test/book/_search?pretty=true' -d '{
     "query": {
         "filtered": {
             "filter": {
