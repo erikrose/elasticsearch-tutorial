@@ -11,13 +11,13 @@ curl -s XPUT 'http://127.0.0.1:9200/test/album/1' -d '{
     "released": "2013-01-23"
 }'
 
-# 3. Get the mapping:
+# 3. How to get the mapping:
 curl -s -XGET 'http://127.0.0.1:9200/test/album/_mapping?pretty'
 
-# 4. Delete that album doc so we can change the bad mapping:
+# 4. How to delete that album doc so we can change the bad mapping:
 curl -s -XDELETE 'http://127.0.0.1:9200/test/album'
 
-# 5. Set a mapping explicitly so you can’t fool ES anymore. Here's a sample
+# 5. How to set a mapping explicitly so you can’t fool ES anymore. Here's a sample
 # mapping to expand upon:
 curl -s XPUT 'http://127.0.0.1:9200/test/_mapping/album' -d '{
   "properties" : {
