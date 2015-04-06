@@ -23,4 +23,4 @@ curl -s -XPUT 'http://localhost:9200/test/_settings?pretty' -d '{
 curl -s -XPOST 'http://localhost:9200/test/_open'
 
 # Try the analyzer:
-curl -XGET -s 'http://localhost:9200/test/_analyze?analyzer=comma_delim&pretty=true' -d 'red, two-headed, striped, really dangerous'
+curl -s -XGET 'http://localhost:9200/test/_analyze?analyzer=comma_delim&pretty=true' -d 'red, two-headed, striped, really dangerous'

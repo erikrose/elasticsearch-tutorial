@@ -17,4 +17,4 @@ curl -s -XPUT 'http://localhost:9200/test/_settings?pretty' -d '{
 }'
 
 # How to test an analyzer:
-curl -XGET -s 'http://localhost:9200/test/_analyze?analyzer=whitespace_analyzer&pretty=true' -d 'all your base are belong to us, dude'
+curl -s -XGET 'http://localhost:9200/test/_analyze?analyzer=whitespace_analyzer&pretty&text=all your base are belong to us, dude'
