@@ -1,10 +1,24 @@
-curl -s -XGET 'http://localhost:9200/test/book/_search?pretty=true' -d '{
-        "size" : 0,
-        "aggs" : {
-            "category" : {
-                "terms" : {
-                    "field" : "category"
-                }
+curl -s -XGET 'http://localhost:9200/test/book/_search?pretty' -d '{
+    "size" : 0,
+    "aggs" : {
+        "category" : {
+            "terms" : {
+                "field" : "category"
             }
         }
+    }
 }'
+
+
+# Another fun one to play with:
+curl -s -XGET 'http://localhost:9200/test/book/_search?pretty' -d '{
+{
+    "query": {
+        "match": {"title": "Python"}
+    },
+    "aggs": {
+        "most_pages": {
+            "max": {"field": "pages"}
+        }
+    }
+}

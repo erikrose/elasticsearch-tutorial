@@ -7,7 +7,9 @@ curl -XPOST 'localhost:9200/_bulk?pretty' -d '{"index" : { "_index" : "test", "_
 {"index" : { "_index" : "test", "_type": "book", "_id": "3"}}
 {"title": "CSS Fun and Easy", "author": "Julia Smith", "pages": 1032, "publication date": "2014-07-01", "category": "Web Development", "summary": "A comprehensive guide to having your soul destroyed by old versions of nameless browsers.", "rating": 4.1 }
 {"index" : { "_index" : "test", "_type": "book", "_id": "4"}}
-{"title": "Python for Dogs", "author": "Rufus Milan", "pages": 4, "publication date": "2012-12-20", "category": "Web Development", "summary": "A unique focus on only the parts of the Python language that are interesting to canines.", "rating": 5 }
+{"title": "Python for Dogs", "author": "Rufus Milan", "pages": 4, "publication date": "2012-12-20", "category": "Web Development", "summary": "A unique focus on only the parts of the Python language that are interesting to canines, particularly canines who live with scientists.", "rating": 5 }
 {"index" : { "_index" : "test", "_type": "book", "_id": "5"}}
 {"title": "Python for Rocket Scientists", "author": "Neil Sagan", "pages": 563, "publication date": "2014-03-02", "category": "Web Development", "summary": "A unique focus on only the parts of the Python language that are interesting to rocket scientists", "rating": 5 }
+{"index" : { "_index" : "test", "_type": "book", "_id": "6"}}
+{"title": "Python for Drummers", "author": "Buddy Reach", "pages": 1, "publication date": "2014-03-25", "category": "Web Development", "summary": "A one-page pamphlet to help drummers harness Python, specially formatted to be held in one hand while trying to carry your hardware bags through the door with the other", "rating": 4 }
 '

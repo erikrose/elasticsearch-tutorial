@@ -1,17 +1,17 @@
-curl -s -XGET 'http://localhost:9200/test/book/_search?pretty=true' -d '{
+curl -s -XGET 'http://localhost:9200/test/book/_search?pretty' -d '{
     "query": {
         "bool": {
-            "must": { 
+            "must": {
                 "bool": {
-                    "should": [ 
+                    "should": [
                         {
                             "match": {
-                                "category": "development"
+                                "summary": "drummers"
                             }
                         },
                         {
-                            "match": { 
-                                "category": "programming" 
+                            "match": {
+                                "summary": "scientists"
                             }
                         }
                     ]
@@ -24,8 +24,8 @@ curl -s -XGET 'http://localhost:9200/test/book/_search?pretty=true' -d '{
                     }
                 },
                 {
-                    "match": { 
-                        "summary": "Python" 
+                    "match": {
+                        "summary": "Python"
                     }
                 }
             ]
