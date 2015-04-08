@@ -1,5 +1,5 @@
 # Insert a bunch of different docs by changing the tag field (and ID) in the following:
-curl -s XPUT 'http://127.0.0.1:9200/test/book/1' -d '{
+curl -s -XPUT 'http://127.0.0.1:9200/test/book/1' -d '{
     "title": "All About Fish",
     "tag": ["one", "two", "red", "blue"]
 }'
