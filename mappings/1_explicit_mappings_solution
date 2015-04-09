@@ -36,7 +36,7 @@ PUT /test/album/1
     "title": "2001-01-01"
 }
 
-# Future stringily-titled album inserts will fail:
+# Future stringily-titled album inserts now work:
 PUT /test/album/2
 {
     "title": "Hello There"
