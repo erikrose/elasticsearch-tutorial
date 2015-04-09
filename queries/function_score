@@ -1,4 +1,4 @@
-GET /test/book/_search?pretty=true
+GET /test/book/_search
 {
     "query": {
         "function_score": {

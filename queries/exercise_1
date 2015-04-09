@@ -1,6 +1,6 @@
 DELETE /test
 
-POST /_bulk?pretty
+POST /_bulk
 {"index" : { "_index" : "test", "_type": "book", "_id": "1"}}
 {"title": "Pool Sharks I Have Known", "author": "Speedy Johnny", "pages": 238, "publication date": "2013-01-01", "category": "Games", "summary": "Speedy Johnny was famous throughout the pool playing world for cheating. In this book he recounts some of his favorite anecdotes.", "rating": 3} 
 {"index" : { "_index" : "test", "_type": "book", "_id": "2"}}

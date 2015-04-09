@@ -1,5 +1,5 @@
 # How to update the "test" index's analyzers:
-PUT /test/_settings?pretty
+PUT /test/_settings
 {
     "analysis": {
         "analyzer": {

@@ -1,4 +1,4 @@
-GET /test/book/_search?pretty
+GET /test/book/_search
 {
     "size" : 0,
     "aggs" : {
@@ -11,7 +11,7 @@ GET /test/book/_search?pretty
 }
 
 # Another fun one to play with:
-GET /test/book/_search?pretty
+GET /test/book/_search
 {
     "query": {
         "match": {"title": "Python"}

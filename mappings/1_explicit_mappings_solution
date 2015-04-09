@@ -9,7 +9,7 @@ PUT /test/album/1
 }
 
 # Future stringily-titled album inserts will fail:
-PUT /test/album/2?pretty
+PUT /test/album/2
 {
     "title": "Hello There"
 }

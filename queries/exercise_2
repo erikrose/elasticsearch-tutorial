@@ -1,1 +1,1 @@
-GET /test/book/1?pretty
+GET /test/book/1

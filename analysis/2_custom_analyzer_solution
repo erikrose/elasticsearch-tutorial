@@ -2,7 +2,7 @@
 POST /test/_close
 
 # Put in the new analyzer:
-PUT /test/_settings?pretty
+PUT /test/_settings
 {
     "analysis": {
         "analyzer": {

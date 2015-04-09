@@ -6,7 +6,7 @@ PUT /test/book/1
 }
 
 # A sample query--try changing the ["two", "three"] bit:
-GET /test/book/_search?pretty
+GET /test/book/_search
 {
     "query": {
         "match_all": {}

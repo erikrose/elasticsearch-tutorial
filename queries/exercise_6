@@ -1,4 +1,4 @@
-GET /test/book/4/_explain?pretty=true
+GET /test/book/4/_explain
 {
     "query": {
         "filtered": {
