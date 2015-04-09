@@ -1,5 +1,6 @@
-curl -XGET 'http://localhost:9200/test/book/_search' -d '{
+GET /test/book/_search
+{
     "query" : {
             "match" : { "title" : "Python" }
     }
-}'
+}

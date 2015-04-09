@@ -1,4 +1,5 @@
-curl -s -XGET 'http://localhost:9200/test/book/_search?pretty' -d '{
+GET /test/book/_search?pretty
+{
     "query": {
         "bool": {
             "must": {
@@ -31,4 +32,4 @@ curl -s -XGET 'http://localhost:9200/test/book/_search?pretty' -d '{
             ]
         }
     }
-}'
+}

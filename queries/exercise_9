@@ -1,4 +1,5 @@
-curl -s -XGET 'http://localhost:9200/test/book/_search?pretty' -d '{
+GET /test/book/_search?pretty
+{
     "size" : 0,
     "aggs" : {
         "category" : {
@@ -7,11 +8,10 @@ curl -s -XGET 'http://localhost:9200/test/book/_search?pretty' -d '{
             }
         }
     }
-}'
-
+}
 
 # Another fun one to play with:
-curl -s -XGET 'http://localhost:9200/test/book/_search?pretty' -d '{
+GET /test/book/_search?pretty
 {
     "query": {
         "match": {"title": "Python"}

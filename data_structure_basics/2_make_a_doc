@@ -1,12 +1,13 @@
 # Make a doc:
-curl -s XPUT 'http://127.0.0.1:9200/test/book/1' -d '{
+PUT /test/book/1
+{
     "title": "All About Fish",
     "author": "Fishy McFishstein",
     "pages": 3015
-}'
+}
 
 # Make sure it's there:
-curl -s -XGET 'http://127.0.0.1:9200/test/book/1?pretty'
+GET /test/book/1
 
 # Delete the doc:
-curl -s -XDELETE 'http://localhost:9200/test/book/1'
+DELETE /test/book/1

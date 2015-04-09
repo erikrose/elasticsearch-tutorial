@@ -1,5 +1,6 @@
 # How to update the "test" index's analyzers:
-curl -s -XPUT 'http://localhost:9200/test/_settings?pretty' -d '{
+PUT /test/_settings?pretty
+{
     "analysis": {
         "analyzer": {
             "whitespace_analyzer": {
@@ -14,7 +15,7 @@ curl -s -XPUT 'http://localhost:9200/test/_settings?pretty' -d '{
             }
         }
     }
-}'
+}
 
 # How to test an analyzer:
-curl -s -XGET 'http://localhost:9200/test/_analyze?analyzer=whitespace_analyzer&pretty&text=all your base are belong to us, dude'
+GET /test/_analyze?analyzer=whitespace_analyzer&pretty&text=all your base are belong to us, dude
