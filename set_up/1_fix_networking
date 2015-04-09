@@ -13,4 +13,4 @@ discovery.zen.ping.multicast.enabled: false
 
 # Set the bind address specifically (IPv4 or IPv6):
 #
-network.bind_host: 127.0.0.1
+network.host: 127.0.0.1
